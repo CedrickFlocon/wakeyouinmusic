@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ListView
+		android:id="@+id/alarmListView"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:clipToPadding="false"
+		android:divider="@null"
+		android:dividerHeight="30dp"
+		android:paddingBottom="90dp"
+		android:paddingLeft="25dp"
+		android:paddingRight="25dp"
+		android:paddingTop="10dp"
+		android:scrollbarStyle="outsideOverlay"
+		tools:listitem="@layout/view_alarm_summary"/>
+
+	<ImageButton
+		android:id="@+id/actionButton"
+		style="@style/Widget.WakeYouInMusic.ImageButton.Add"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true"
+		android:layout_margin="30dp"/>
+
+</RelativeLayout>
+
+
+

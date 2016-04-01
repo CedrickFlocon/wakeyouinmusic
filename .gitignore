@@ -1,0 +1,19 @@
+# Mac OS X clutter
+*.DS_Store
+
+# Windows clutter
+Thumbs.db
+
+#Crashlytics
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+crashlytics.properties
+
+# Local configuration file
+local.properties
+
+# Android Studio
+.idea
+.gradle/
+build/
+*.iml

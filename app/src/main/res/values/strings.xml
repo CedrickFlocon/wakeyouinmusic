@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Wake You In Music</string>
+
+	<!-- Period -->
+	<string name="period_week_day">Week day</string>
+	<string name="period_today">Today</string>
+	<string name="period_weekend">Weekend</string>
+	<string name="period_tomorrow">Tomorrow</string>
+	<string name="period_every_day">Every day</string>
+
+	<string name="toast_from_now_long">Alarm set for %1$s and %2$s from now</string>
+	<string name="toast_from_now_small">Alarm set for %1$s from now</string>
+
+	<string name="toast_dismiss">Alarm dismiss</string>
+	<plurals name="toast_snooze">
+		<item quantity="zero">Alarm snooze for %1$d minute</item>
+		<item quantity="one">Alarm snooze for %1$d minute</item>
+		<item quantity="other">Alarm snooze for %1$d minutes</item>
+	</plurals>
+
+	<plurals name="day">
+		<item quantity="one">%1$d day</item>
+		<item quantity="other">%1$d days</item>
+	</plurals>
+
+	<plurals name="hour">
+		<item quantity="one">%1$d hour</item>
+		<item quantity="other">%1$d hours</item>
+	</plurals>
+
+	<plurals name="minute">
+		<item quantity="zero">%1$d minute</item>
+		<item quantity="one">%1$d minute</item>
+		<item quantity="other">%1$d minutes</item>
+	</plurals>
+
+	<!-- General -->
+	<string name="sign_out">Sign out</string>
+	<string name="disconnected">Disconnected</string>
+	<string name="sign_in">Sign in</string>
+	<string name="connected">Connected</string>
+	<string name="not_connected">Not connected</string>
+	<string name="retry">Retry</string>
+	<string name="error_unknown">Unknown error</string>
+	<string name="error_no_connection">Error : no internet connection</string>
+	<string name="error_spotify_no_premium">This service is only available to Spotify premium account</string>
+	<string name="loading">Loading…</string>
+
+	<!-- Menu -->
+	<string name="menu_setting">Settings</string>
+	<string name="menu_delete">Delete</string>
+
+	<!-- Title -->
+	<string name="activity_title_settings">Settings</string>
+	<string name="activity_title_detail">Detail</string>
+	<string name="activity_title_about">About</string>
+
+	<!-- Settings -->
+	<string name="category_music_streaming_account">Music streaming account</string>
+	<string name="category_alarms">Alarms</string>
+	<string name="category_other">Other</string>
+	<string name="title_default_ringtone">Default ringtone</string>
+	<string name="title_snooze_duration">Snooze Duration</string>
+	<string name="title_crescendo_duration">Alarm fade-in length</string>
+	<string name="title_deezer_connection">Deezer® connection</string>
+	<string name="title_volume">Alarm volume</string>
+
+	<string name="title_spotify_connection">Spotify® connection</string>
+	<string name="title_share_application">Share application</string>
+	<string name="title_about">About</string>
+
+	<string-array name="snoozeDuration">
+		<item>4 minutes</item>
+		<item>5 minutes</item>
+		<item>7 minutes</item>
+		<item>9 minutes</item>
+		<item>15 minutes</item>
+	</string-array>
+
+	<string-array name="snoozeDurationValue" translatable="false">
+		<item>240</item>
+		<item>300</item>
+		<item>420</item>
+		<item>540</item>
+		<item>900</item>
+	</string-array>
+
+	<string-array name="crescendoDuration">
+		<item>5 seconds</item>
+		<item>15 seconds</item>
+		<item>30 seconds</item>
+		<item>1 minute</item>
+		<item>2 minutes</item>
+		<item>5 minutes</item>
+	</string-array>
+
+	<string-array name="crescendoDurationValue" translatable="false">
+		<item>5</item>
+		<item>15</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>300</item>
+	</string-array>
+
+	<string name="share_message">For fans of Music!\nYou, who are not necessarily morning, this musical alarm clock is for you! It will allow you to emerge with the playlist of your choice to start the day off right!</string>
+	<string name="share_subject">Wake you in music</string>
+
+	<!-- AlarmDetail -->
+	<string name="alarm_detail_vibrate">Vibrate</string>
+	<string name="alarm_detail_shuffle">Shuffle</string>
+	<string name="alarm_detail_hint_label">Label</string>
+
+	<!-- Ringtone picker -->
+	<string name="ringtone_unnamed">Unnamed ringtone</string>
+	<string name="ringtone_picker_title">Select a ringtone</string>
+	<string name="ringtone_picker_retry">Retry</string>
+	<string name="ringtone_picker_error">Error</string>
+	<string name="ringtone_picker_error_no_playlist">You don\'t have any playlist</string>
+	<string name="ringtone_picker_deezer_ringtone">Deezer® Playlist</string>
+	<string name="ringtone_picker_spotify_ringtone">Spotify® Playlist</string>
+	<string name="ringtone_picker_default_ringtone">Default Ringtone</string>
+
+	<!-- Alarm Alert -->
+	<string name="alarm_alert_snooze">Snooze</string>
+	<string name="alarm_alert_dismiss">Dismiss</string>
+	<string name="alarm_alert_error_ringtone">Default Ringtone</string>
+	<string name="alarm_alert_emergency_ringtone">Emergency ringtone</string>
+	<string name="alarm_alert_swipe_to_dismiss">Swipe right to dismiss</string>
+
+	<!-- About -->
+	<string name="about_copyright">© 2015 Flocon Cédrick</string>
+	<string name="about_version">Version %s</string>
+	<string name="about_rate_application"><u>Rate application</u></string>
+	<string name="about_emma">Special thank to Emma Wiest</string>
+	<string name="about_emma_link"><u>www.emma-wiest.fr</u></string>
+	<string name="about_deezer_trademark">Deezer® is a registered trademark of Blogmusik SAS</string>
+	<string name="about_spotify_trademark">Spotify® is a registered trademark of Spotify Group</string>
+
+	<!-- Player Error -->
+	<string name="player_error_playlist_unavailable">Playlist unavailable</string>
+	<string name="player_error_disconnected">You are not logged in</string>
+	<string name="player_error_unauthorized">You are not authorized</string>
+	<string name="player_error_lost_permission">You have lost permission</string>
+	<string name="player_error_no_internet">You are not connected to internet</string>
+	<string name="player_error_no_prenium">You need a premium account</string>
+	<string name="player_error_unknown">An unknown error has occurred</string>
+	<string name="player_error_ringtone_not_found">Ringtone not found</string>
+	<string name="player_error_empty_playlist">Your playlist is empty</string>
+	<string name="player_error_spotify_internal">Spotify internal error</string>
+	<string name="player_error_deezer_internal">Deezer internal error</string>
+
+</resources>

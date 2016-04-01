@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Réveille toi en musique</string>
+
+	<!-- Period -->
+	<string name="period_week_day">Jour de la semaine</string>
+	<string name="period_today">Aujourd\'hui</string>
+	<string name="period_weekend">Week-end</string>
+	<string name="period_tomorrow">Demain</string>
+	<string name="period_every_day">Tout les jours</string>
+
+	<string name="toast_from_now_long">Alarme programmée pour %1$s and %2$s à partir de maintenant</string>
+	<string name="toast_from_now_small">Alarme programmée pour %1$s à partir de maintenant</string>
+
+	<string name="toast_dismiss">Réveil arreté</string>
+	<plurals name="toast_snooze">
+		<item quantity="zero">Réveil snooze pour %1$d minute</item>
+		<item quantity="one">Réveil snooze pour %1$d minute</item>
+		<item quantity="other">Réveil snooze pour %1$d minutes</item>
+	</plurals>
+
+
+	<plurals name="day">
+		<item quantity="one">%1$d jour</item>
+		<item quantity="other">%1$d jours</item>
+	</plurals>
+
+	<plurals name="hour">
+		<item quantity="one">%1$d heure</item>
+		<item quantity="other">%1$d heures</item>
+	</plurals>
+
+	<plurals name="minute">
+		<item quantity="zero">%1$d minute</item>
+		<item quantity="one">%1$d minute</item>
+		<item quantity="other">%1$d minutes</item>
+	</plurals>
+
+	<!-- General -->
+	<string name="sign_out">Se déconnecter</string>
+	<string name="disconnected">Déconnecté</string>
+	<string name="sign_in">Se connecter</string>
+	<string name="connected">Connecté</string>
+	<string name="not_connected">Non connecté</string>
+	<string name="retry">Réessayer</string>
+	<string name="error_unknown">Erreur inconnue</string>
+	<string name="error_no_connection">Erreur : pas de connexion internet</string>
+	<string name="error_spotify_no_premium">Ce service est disponible uniquement au compte Spotify® premium</string>
+	<string name="loading">Chargement…</string>
+
+	<!-- Menu -->
+	<string name="menu_setting">Paramètres</string>
+	<string name="menu_delete">Supprimer</string>
+
+	<!-- Title -->
+	<string name="activity_title_settings">Paramètres</string>
+	<string name="activity_title_detail">Détail</string>
+	<string name="activity_title_about">À propos</string>
+
+	<!-- Settings -->
+	<string name="category_music_streaming_account">Compte de streaming de musique</string>
+	<string name="category_alarms">Alarmes</string>
+	<string name="category_other">Autre</string>
+	<string name="title_default_ringtone">Sonnerie par défaut</string>
+	<string name="title_snooze_duration">Snooze Durée</string>
+	<string name="title_crescendo_duration">Durée du fondu sonore</string>
+	<string name="title_deezer_connection">Deezer® connexion</string>
+	<string name="title_volume">Alarme volume</string>
+
+	<string name="title_spotify_connection">Spotify connexion</string>
+	<string name="title_share_application">Partager l\'application</string>
+	<string name="title_about">À propos</string>
+
+	<string-array name="snoozeDuration">
+		<item>4 minutes</item>
+		<item>5 minutes</item>
+		<item>7 minutes</item>
+		<item>9 minutes</item>
+		<item>15 minutes</item>
+	</string-array>
+
+	<string-array name="crescendoDuration">
+		<item>5 secondes</item>
+		<item>15 secondes</item>
+		<item>30 secondes</item>
+		<item>1 minute</item>
+		<item>2 minutes</item>
+		<item>5 minutes</item>
+	</string-array>
+
+	<string name="share_message">Avis aux amateurs de musique ! Toi qui n\'es pas forcément matinal, ce réveil musical est fait pour toi ! Il te permettra d\'émerger avec la playlist de ton choix pour démarrer toutes tes journées du bon pied !</string>
+	<string name="share_subject">Réveille toi en musique</string>
+
+	<!-- AlarmDetail -->
+	<string name="alarm_detail_vibrate">Vibrer</string>
+	<string name="alarm_detail_shuffle">Aléatoire</string>
+	<string name="alarm_detail_hint_label">Label</string>
+
+	<!-- Ringtone picker -->
+	<string name="ringtone_unnamed">Sonnerie anonyme</string>
+	<string name="ringtone_picker_title">Sélectionnez une sonnerie</string>
+	<string name="ringtone_picker_retry">Réessayer</string>
+	<string name="ringtone_picker_error">Erreur</string>
+	<string name="ringtone_picker_error_no_playlist">Vous n\'avez aucune liste de lecture</string>
+	<string name="ringtone_picker_deezer_ringtone">Deezer® Playlist</string>
+	<string name="ringtone_picker_default_ringtone">Default Playlist</string>
+
+	<!-- Alarm Alert -->
+	<string name="alarm_alert_snooze">Snooze</string>
+	<string name="alarm_alert_dismiss">Arreter</string>
+	<string name="alarm_alert_error_ringtone">Sonnerie par défaut</string>
+	<string name="alarm_alert_emergency_ringtone">Sonnerie de secours</string>
+	<string name="alarm_alert_swipe_to_dismiss">Faire glisser à droite pour arrêter</string>
+
+	<!-- About -->
+	<string name="about_copyright">© 2015 Flocon Cédrick</string>
+	<string name="about_version">Version %s</string>
+	<string name="about_rate_application"><u>Noter l\'application</u></string>
+	<string name="about_emma">Remerciement spécial à Emma Wiest</string>
+	<string name="about_emma_link"><u>www.emma-wiest.fr</u></string>
+	<string name="about_deezer_trademark">Deezer® est une marque déposée de Blogmusik SAS</string>
+	<string name="ringtone_picker_spotify_ringtone">Spotify® Playlist</string>
+	<string name="about_spotify_trademark">Spotify® est une marque déposée de Spotify Group</string>
+
+	<!-- Player Error -->
+	<string name="player_error_disconnected">Vous n\'êtes pas connecté</string>
+	<string name="player_error_lost_permission">Vous avez perdu l\'autorisation</string>
+	<string name="player_error_no_internet">Vous n\'êtes pas connecté à Internet</string>
+	<string name="player_error_no_prenium">Vous avez besoin d\'un compte premium</string>
+	<string name="player_error_playlist_unavailable">Playlist indisponible</string>
+	<string name="player_error_unauthorized">Vous n\'êtes pas autorisé</string>
+	<string name="player_error_unknown">Une erreur inconnue s\'est produite</string>
+	<string name="player_error_ringtone_not_found">Sonnerie introuvable</string>
+	<string name="player_error_empty_playlist">Votre liste de lecture est vide</string>
+	<string name="player_error_spotify_internal">Spotify erreur interne</string>
+	<string name="player_error_deezer_internal">Deezer erreur interne</string>
+
+</resources>

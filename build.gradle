@@ -1,0 +1,9 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'me.tatarka:gradle-retrolambda:2.4.1'
+    }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+	<application>wakeyouinmusic</application>
+	<version>1</version>
+	<threadsafe>true</threadsafe>
+
+	<system-properties>
+		<property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+	</system-properties>
+
+	<env-variables>
+		<env-var name="SPOTIFY_CLIENT_SECRET" value="1c422036ea164c2cb348a284e2169477" />
+		<env-var name="SPOTIFY_CLIENT_ID" value="49a6a8d30ee748f7a232328ecd277671" />
+	</env-variables>
+</appengine-web-app>

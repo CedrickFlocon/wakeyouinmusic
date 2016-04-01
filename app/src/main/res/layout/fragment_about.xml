@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:scrollbarStyle="outsideOverlay">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_margin="16dp"
+		android:gravity="center_horizontal"
+		android:orientation="vertical">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginTop="15dp"
+			android:src="@drawable/ic_launcher"/>
+
+
+		<TextView
+			android:id="@+id/versionTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_marginTop="15dp"
+			tools:text="version 1.0"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/about_copyright"/>
+
+		<TextView
+			android:id="@+id/rateApplicationTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:background="@drawable/text_view_background"
+			android:clickable="true"
+			android:text="@string/about_rate_application"/>
+
+		<View
+			style="@style/AboutViewSeparator"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<ImageView
+				android:layout_width="150dp"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="10dp"
+				android:src="@drawable/logo_emma"/>
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:orientation="vertical">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:text="@string/about_emma"/>
+
+				<TextView
+					android:id="@+id/emmaLinkTextView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:background="@drawable/text_view_background"
+					android:clickable="true"
+					android:layout_gravity="center_horizontal"
+					android:text="@string/about_emma_link"/>
+
+			</LinearLayout>
+
+
+		</LinearLayout>
+
+		<View
+			style="@style/AboutViewSeparator"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<ImageView
+				android:layout_width="150dp"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="10dp"
+				android:src="@drawable/logo_deezer"/>
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_weight="1"
+				android:text="@string/about_deezer_trademark"/>
+
+		</LinearLayout>
+
+		<View
+			style="@style/AboutViewSeparator"/>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<ImageView
+				android:layout_width="150dp"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="10dp"
+				android:adjustViewBounds="true"
+				android:src="@drawable/logo_spotify"/>
+
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_weight="1"
+				android:text="@string/about_spotify_trademark"/>
+
+		</LinearLayout>
+
+		<View
+			style="@style/AboutViewSeparator"/>
+
+	</LinearLayout>
+
+</ScrollView>

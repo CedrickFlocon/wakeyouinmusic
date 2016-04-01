@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="alarm_icon_action">75dp</dimen>
+	<dimen name="alarm_icon__background_action">100dp</dimen>
+</resources>

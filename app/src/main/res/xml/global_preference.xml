@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<PreferenceCategory android:title="@string/category_music_streaming_account">
+		<org.neige.wakeyouinmusic.android.ActionPreference
+			android:key="deezerLoginButton"
+			android:title="@string/title_deezer_connection"/>
+
+		<org.neige.wakeyouinmusic.android.ActionPreference
+			android:key="spotifyLoginButton"
+			android:title="@string/title_spotify_connection"/>
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/category_alarms">
+		<RingtonePreference
+			android:key="defaultRingtone"
+			android:ringtoneType="alarm"
+			android:showSilent="false"
+			android:showDefault="true"
+			android:defaultValue="content://settings/system/alarm_alert"
+			android:title="@string/title_default_ringtone"/>
+
+		<ListPreference
+			android:defaultValue="540"
+			android:entries="@array/snoozeDuration"
+			android:entryValues="@array/snoozeDurationValue"
+			android:key="snoozeDuration"
+			android:title="@string/title_snooze_duration"/>
+
+		<Preference
+			android:key="volume"
+			android:title="@string/title_volume"/>
+
+		<ListPreference
+			android:defaultValue="5"
+			android:entries="@array/crescendoDuration"
+			android:entryValues="@array/crescendoDurationValue"
+			android:key="crescendoDuration"
+			android:title="@string/title_crescendo_duration"/>
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/category_other">
+
+		<Preference
+			android:key="shareApplication"
+			android:title="@string/title_share_application"/>
+
+		<Preference
+			android:key="about"
+			android:title="@string/title_about"/>
+
+	</PreferenceCategory>
+
+</PreferenceScreen>

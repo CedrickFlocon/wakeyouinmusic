@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:theme="@style/Notification">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_margin="10dp"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/alarmLabelTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:ellipsize="end"
+				android:singleLine="true"
+				tools:text="Alarm label"/>
+
+			<TextView
+				android:id="@+id/errorTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:ellipsize="end"
+				android:singleLine="true"
+				android:textColor="@color/red"
+				tools:text="Error Text"/>
+
+			<TextView
+				android:id="@id/trackTitleTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:ellipsize="end"
+				android:singleLine="true"
+				tools:text="Track Name"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:id="@+id/snoozeButton"
+			style="@style/Widget.WakeYouInMusic.Button.Notification"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:orientation="horizontal">
+
+			<ImageView
+				style="@style/Widget.WakeYouInMusic.Button.Notification"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="#0000"
+				android:clickable="false"
+				android:src="@drawable/button_snooze"/>
+
+			<TextView
+				style="@style/Widget.WakeYouInMusic.Button.Notification"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="#0000"
+				android:clickable="false"
+				android:text="@string/alarm_alert_snooze"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/dismissButton"
+			style="@style/Widget.WakeYouInMusic.Button.Notification"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:orientation="horizontal">
+
+			<ImageView
+				style="@style/Widget.WakeYouInMusic.Button.Notification"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="#0000"
+				android:clickable="false"
+				android:src="@drawable/button_dismiss"/>
+
+			<TextView
+				style="@style/Widget.WakeYouInMusic.Button.Notification"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="#0000"
+				android:clickable="false"
+				android:text="@string/alarm_alert_dismiss"/>
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

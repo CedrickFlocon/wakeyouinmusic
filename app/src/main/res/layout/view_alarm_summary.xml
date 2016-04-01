@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:addStatesFromChildren="true"
+	android:background="@drawable/alarm_border"
+	android:elevation="5dp"
+	android:orientation="vertical"
+	android:padding="10dp">
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical">
+
+		<TextView
+			android:id="@+id/timeTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:textSize="30sp"
+			tools:text="12:00"/>
+
+		<Switch
+			android:id="@+id/enableSwitch"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:focusable="false"
+			android:focusableInTouchMode="false"/>
+
+	</RelativeLayout>
+
+	<View
+		android:layout_width="fill_parent"
+		android:layout_height="1dp"
+		android:layout_marginBottom="5dp"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="5dp"
+		android:background="@android:color/white"/>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="0.3"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/labelTextView"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:ellipsize="end"
+				android:lines="1"
+				tools:text="Wake you up"/>
+
+			<TextView
+				android:id="@+id/periodTextView"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:ellipsize="end"
+				android:lines="1"
+				tools:text="Week Day"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.7"
+			android:gravity="center_vertical|right">
+
+			<TextView
+				android:id="@+id/ringtoneTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_vertical"
+				android:drawableLeft="@drawable/ic_ringtone"
+				android:ellipsize="end"
+				android:singleLine="true"
+				android:lines="1"
+				android:padding="5dp"
+				android:textSize="15sp"
+				tools:text="Default ringtone (Platinum)"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

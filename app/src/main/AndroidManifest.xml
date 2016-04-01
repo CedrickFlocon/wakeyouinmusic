@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+	package="org.neige.wakeyouinmusic.android"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+	<application
+		android:name=".WakeYouInMusicApplication"
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/Theme.WakeYouInMusic">
+
+		<activity
+			android:name=".activities.LaunchActivity"
+			android:noHistory="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+
+		<activity
+			android:name=".activities.AlarmListActivity"
+			android:label="@string/app_name"/>
+
+		<activity
+			android:name=".activities.SettingActivity"
+			android:label="@string/activity_title_settings"
+			android:parentActivityName=".activities.AlarmListActivity">
+
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".activities.AlarmListActivity"/>
+
+		</activity>
+
+		<activity
+			android:name=".activities.AboutActivity"
+			android:label="@string/activity_title_about"
+			android:parentActivityName=".activities.SettingActivity">
+
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".activities.SettingActivity"/>
+
+		</activity>
+
+		<activity
+			android:name=".activities.AlarmDetailActivity"
+			android:label="@string/activity_title_detail"
+			android:parentActivityName=".activities.AlarmListActivity"
+			android:windowSoftInputMode="stateHidden">
+
+			<meta-data
+				android:name="android.support.PARENT_ACTIVITY"
+				android:value=".activities.AlarmListActivity"/>
+
+		</activity>
+
+		<activity
+			android:name=".activities.AlarmAlertActivity"
+			android:configChanges="orientation"
+			android:launchMode="singleTask"
+			android:noHistory="true"
+			android:screenOrientation="portrait"/>
+
+		<receiver android:name=".services.AlarmReceiver"/>
+
+		<receiver android:name=".services.BootReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED"/>
+			</intent-filter>
+		</receiver>
+
+		<service
+			android:name=".services.AlarmService"
+			android:exported="false"/>
+
+		<!-- Spotify -->
+		<activity
+			android:name="com.spotify.sdk.android.authentication.LoginActivity"
+			android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+		<!-- CrashLytics -->
+		<meta-data
+			android:name="com.crashlytics.ApiKey"
+			android:value="fcc87ae3863a5ea4722741d35e77fcb81b58be32"/>
+	</application>
+
+</manifest>

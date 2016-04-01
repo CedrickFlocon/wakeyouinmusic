@@ -1,0 +1,70 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+	<!-- App Theme -->
+	<style name="Theme.WakeYouInMusic" parent="Theme.AppCompat">
+		<item name="colorPrimary" tools:targetApi="LOLLIPOP">@color/primary</item>
+		<item name="colorPrimaryDark" tools:targetApi="LOLLIPOP">@color/primary_dark</item>
+		<item name="colorAccent" tools:targetApi="LOLLIPOP">@color/accent</item>
+
+		<item name="android:imageButtonStyle">@style/Widget.WakeYouInMusic.ImageButton</item>
+	</style>
+
+	<!-- Widget -->
+	<style name="Widget.WakeYouInMusic.ImageButton" parent="android:Widget.ImageButton">
+		<item name="android:background">@android:color/transparent</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.ImageButton.Add">
+		<item name="android:src">@drawable/button_add</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.Button.SignIn" parent="android:Widget.Button">
+		<item name="android:background">@drawable/button_sign_in</item>
+		<item name="android:textColor">@color/text_color_button_sign_in</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.Button.SignOut" parent="android:Widget.Button">
+		<item name="android:background">@drawable/button_sign_out</item>
+		<item name="android:textColor">@color/text_color_button_sign_out</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.Button.Retry" parent="android:Widget.Button">
+		<item name="android:background">@drawable/button_retry</item>
+		<item name="android:textColor">@color/text_color_button_retry</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.Button.Toggle.Day" parent="android:Widget.Button.Toggle">
+		<item name="android:textSize">10sp</item>
+		<item name="android:background">@drawable/toggle_day</item>
+		<item name="android:textColor">@color/text_color_toggle_day</item>
+	</style>
+
+	<style name="Notification">
+		<item name="android:textColor">@color/primary</item>
+		<item name="android:background">@android:color/black</item>
+		<item name="android:buttonStyle">@style/Widget.WakeYouInMusic.Button.Notification</item>
+		<item name="android:imageButtonStyle">@style/Widget.WakeYouInMusic.Button.Notification</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.Button.Notification" parent="android:Widget.Button">
+		<item name="android:padding">3dp</item>
+		<item name="android:textColor">@color/text_color_notification</item>
+		<item name="android:background">@drawable/button_notification</item>
+	</style>
+
+	<style name="Widget.WakeYouInMusic.ImageButton.Notification" parent="android:Widget.ImageButton">
+		<item name="android:padding">3dp</item>
+		<item name="android:background">@drawable/button_notification</item>
+	</style>
+
+	<style name="AboutViewSeparator">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:layout_marginLeft">25dp</item>
+		<item name="android:layout_marginRight">25dp</item>
+		<item name="android:layout_marginTop">20dp</item>
+		<item name="android:layout_marginBottom">20dp</item>
+		<item name="android:background">@android:color/white</item>
+	</style>
+
+</resources>
