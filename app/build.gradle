@@ -83,7 +83,7 @@ repositories {
 dependencies {
     compile project(path: ':backend', configuration: 'android-endpoints')
 
-    compile files('libs/deezer-sdk-0.10.16.jar')
+    compile 'com.deezer.sdk:deezer-sdk:0.10.20@aar'
     compile 'com.spotify.sdk:spotify-player:1.0.0-beta10@aar'
     compile 'com.spotify.sdk:spotify-auth:1.0.0-beta10@aar'
 

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
 import com.deezer.sdk.model.PaginatedList;
+import com.deezer.sdk.model.PlayableEntity;
 import com.deezer.sdk.model.Track;
 import com.deezer.sdk.network.connect.DeezerConnect;
 import com.deezer.sdk.network.connect.SessionStore;
@@ -184,14 +185,13 @@ public class DeezerPlayer extends PlaylistPlayer implements PlayerWrapperListene
 	}
 
 	@Override
-	public void onPlayTrack(Track track) {
+	public void onPlayTrack(PlayableEntity playableEntity) {
 		if (playerListener != null) {
 			playerListener.onTrackChange();
 		}
 	}
 
-	@Override
-	public void onTrackEnded(Track track) {
+	@Override public void onTrackEnded(PlayableEntity playableEntity) {
 		if (currentTrackIndex == randomTrack.size() - 1){
 			currentTrackIndex = -1;
 		}
