@@ -22,15 +22,15 @@ public abstract class PlaylistPlayer {
 	protected AudioManager audioManager;
 	protected Context context;
 
-	protected int progresiveVolume = 0;
+	protected int progressiveVolume = 0;
 	private Handler handler = new Handler();
 	private boolean isStop = false;
 	private final Runnable runnable = new Runnable() {
 		public void run() {
 			if (!isStop && (currentVolume == 0 || currentVolume == audioManager.getStreamVolume(getStreamType()))){
-				audioManager.setStreamVolume(getStreamType(), alarmVolume * (++progresiveVolume) / 100, 0);
+				audioManager.setStreamVolume(getStreamType(), alarmVolume * (++progressiveVolume) / 100, 0);
 				currentVolume = audioManager.getStreamVolume(getStreamType());
-				if (progresiveVolume < 100){
+				if (progressiveVolume < 100){
 					handler.postDelayed(this, crescendoDuration * 1000 / FADE_VOLUME_PITCH);
 				}
 			}

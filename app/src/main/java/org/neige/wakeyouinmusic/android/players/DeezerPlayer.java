@@ -26,7 +26,6 @@ import org.neige.wakeyouinmusic.android.WakeYouInMusicApplication;
 import org.neige.wakeyouinmusic.android.models.DeezerRingtone;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -153,7 +152,7 @@ public class DeezerPlayer extends PlaylistPlayer implements PlayerWrapperListene
 	public org.neige.wakeyouinmusic.android.players.Track getCurrentTrackInformation() {
 		org.neige.wakeyouinmusic.android.players.Track track = new org.neige.wakeyouinmusic.android.players.Track();
 		track.setName(getCurrentTrackTitle());
-		track.setArtiste(getCurrentTrackArtiste());
+		track.setArtist(getCurrentTrackArtiste());
 		track.setCoverUrl(getCurrentTrackCover());
 		return track;
 	}

@@ -3,7 +3,7 @@ package org.neige.wakeyouinmusic.android.players;
 public class Track {
 
 	private String name;
-	private String artiste;
+	private String artist;
 	private String coverUrl;
 
 	public String getName() {
@@ -14,12 +14,12 @@ public class Track {
 		this.name = name;
 	}
 
-	public String getArtiste() {
-		return artiste;
+	public String getArtist() {
+		return artist;
 	}
 
-	public void setArtiste(String artiste) {
-		this.artiste = artiste;
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
 	public String getCoverUrl() {

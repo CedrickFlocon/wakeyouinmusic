@@ -180,7 +180,7 @@ public class AlarmAlertFragment extends Fragment implements View.OnTouchListener
 
 	public void updateTrackInformation(Track track) {
 		trackTitleTextView.setText(track.getName());
-		artisteTextView.setText(track.getArtiste());
+		artisteTextView.setText(track.getArtist());
 		if (track.getCoverUrl() != null && track.getCoverUrl().length() > 0) {
 			if (getActivity() != null) {
 				Picasso.with(getActivity()).load(track.getCoverUrl()).into(coverImageView);

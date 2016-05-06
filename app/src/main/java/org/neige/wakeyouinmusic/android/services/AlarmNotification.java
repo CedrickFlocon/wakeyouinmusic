@@ -95,7 +95,7 @@ public class AlarmNotification {
 
 		//Content View
 		notification.contentView.setTextViewText(R.id.trackTitleTextView, track.getName());
-		notification.contentView.setTextViewText(R.id.artisteTextView, track.getArtiste());
+		notification.contentView.setTextViewText(R.id.artisteTextView, track.getArtist());
 		notification.contentView.setTextViewText(R.id.alarmLabelTextView, alarm.getLabel());
 		notification.contentView.setImageViewResource(R.id.coverImageView, R.drawable.ic_empty_cover);
 
@@ -106,7 +106,7 @@ public class AlarmNotification {
 		//Big View
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
 			notification.bigContentView.setTextViewText(R.id.trackTitleTextView, track.getName());
-			notification.bigContentView.setTextViewText(R.id.artisteTextView, track.getArtiste());
+			notification.bigContentView.setTextViewText(R.id.artisteTextView, track.getArtist());
 			notification.bigContentView.setTextViewText(R.id.alarmLabelTextView, alarm.getLabel());
 			notification.bigContentView.setImageViewResource(R.id.coverImageView, R.drawable.ic_empty_cover);
 

@@ -268,7 +268,7 @@ public class SpotifyPlayer extends PlaylistPlayer implements Player.Initializati
                 if (playlistTrack.track.uri.equals(playerState.trackUri)) {
                     currentTrack = new Track();
                     if (playlistTrack.track.artists.size() > 0) {
-                        currentTrack.setArtiste(playlistTrack.track.artists.get(0).name);
+                        currentTrack.setArtist(playlistTrack.track.artists.get(0).name);
                     }
                     if (playlistTrack.track.album.images.size() > 0) {
                         currentTrack.setCoverUrl(playlistTrack.track.album.images.get(0).url);
