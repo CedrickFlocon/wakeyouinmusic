@@ -19,16 +19,9 @@ import org.neige.wakeyouinmusic.android.R;
 import org.neige.wakeyouinmusic.android.WakeYouInMusicApplication;
 import org.neige.wakeyouinmusic.android.models.SpotifyRingtone;
 import org.neige.wakeyouinmusic.android.spotify.ApiSpotify;
-import org.neige.wakeyouinmusic.android.spotify.models.Pager;
-import org.neige.wakeyouinmusic.android.spotify.models.Playlist;
 import org.neige.wakeyouinmusic.android.spotify.models.PlaylistTrack;
 import org.neige.wakeyouinmusic.android.spotify.models.User;
 import org.neige.wakeyouinmusic.backend.spotify.model.SpotifyToken;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import retrofit.RetrofitError;
 import rx.Subscriber;
@@ -40,24 +33,18 @@ public class SpotifyPlayer extends PlaylistPlayer implements Player.Initializati
 
     private static final String TAG = "SpotifyPlayer";
     private static final int STREAM_TYPE = AudioManager.STREAM_MUSIC;
-    private final WakeYouInMusicApplication application;
+
     private final SpotifyRingtone ringtone;
     private final CompositeSubscription subscription = new CompositeSubscription();
-
-    private int playlistOffset = 0, tracksOffset = 0;
-    private String playlistUserId = "";
-    private List<PlaylistTrack> playlistTracks = new ArrayList<>();
 
     private Player mPlayer;
     private Track currentTrack = new Track();
     private User currentUser = null;
     private boolean askPlay = false;
-    private List<String> tracksUri = new ArrayList<>();
     private boolean isLoggedIn = false;
 
     protected SpotifyPlayer(WakeYouInMusicApplication application, SpotifyRingtone ringtone) throws PlayerException {
         super(application);
-        this.application = application;
         this.ringtone = ringtone;
 
         if (!ApiSpotify.getInstance().isConnected()) {
@@ -81,7 +68,7 @@ public class SpotifyPlayer extends PlaylistPlayer implements Player.Initializati
             if (currentUser == null) {
                 loadUser();
             } else {
-                loadPlaylist();
+                initPlayer();
             }
         } else {
             askPlay = true;
@@ -129,10 +116,17 @@ public class SpotifyPlayer extends PlaylistPlayer implements Player.Initializati
         return currentTrack;
     }
 
+    private void initPlayer() {
+        mPlayer.play("spotify:playlist:" + ringtone.getSpotifyId());
+        mPlayer.setShuffle(ringtone.isShuffle());
+        mPlayer.setRepeat(true);
+    }
+
     private void loadUser() {
         subscription.add(ApiSpotify.getInstance().getSpotifyService().getCurrentUser().observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.newThread()).subscribe(new Subscriber<User>() {
             @Override
             public void onCompleted() {
+                initPlayer();
             }
 
             @Override
@@ -146,99 +140,8 @@ public class SpotifyPlayer extends PlaylistPlayer implements Player.Initializati
             @Override
             public void onNext(User user) {
                 SpotifyPlayer.this.currentUser = user;
-                loadPlaylist();
             }
         }));
-    }
-
-    private void loadPlaylist() {
-        Map<String, Object> option = new HashMap<>();
-        option.put("limit", String.valueOf(ApiSpotify.PLAYLIST_LIMIT));
-        option.put("offset", playlistOffset);
-
-        subscription.add(ApiSpotify.getInstance().getSpotifyService().getPlaylists(ApiSpotify.getInstance().getUserId(), option).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<Pager<Playlist>>() {
-
-                    private boolean found = false, hasMore = false;
-
-                    @Override
-                    public void onCompleted() {
-                        if (found) {
-                            loadTracks();
-                        } else if (hasMore) {
-                            loadPlaylist();
-                        } else {
-                            onError(new PlayerException(context.getString(R.string.player_error_playlist_unavailable)));
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e(TAG, "Unable to retrieve playlist", e);
-                        if (playerListener != null) {
-                            playerListener.onError(manageError(e));
-                        }
-                    }
-
-                    @Override
-                    public void onNext(Pager<Playlist> playlistPager) {
-                        for (Playlist playlist : playlistPager.items) {
-                            if (playlist.id.equals(ringtone.getSpotifyId())) {
-                                found = true;
-                                playlistUserId = playlist.owner.id;
-                            }
-                        }
-                        playlistOffset = playlistPager.offset + playlistPager.items.size();
-                        hasMore = playlistPager.next != null;
-                    }
-                }));
-    }
-
-    private void loadTracks() {
-        Map<String, Object> option = new HashMap<>();
-        option.put("limit", String.valueOf(ApiSpotify.TRACK_LIMIT));
-        option.put("offset", tracksOffset);
-
-        subscription.add(ApiSpotify.getInstance().getSpotifyService().getPlaylistTracks(playlistUserId, ringtone.getSpotifyId(), currentUser.country, option).subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<Pager<PlaylistTrack>>() {
-                    boolean hasMore = false;
-
-                    @Override
-                    public void onCompleted() {
-                        if (hasMore) {
-                            loadTracks();
-                        } else {
-                            mPlayer.play(tracksUri);
-                            mPlayer.setShuffle(ringtone.isShuffle());
-                            mPlayer.setRepeat(true);
-                        }
-                        if (playlistTracks.size() == 0) {
-                            if (playerListener != null) {
-                                playerListener.onError(new PlayerException(context.getString(R.string.player_error_empty_playlist)));
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e(TAG, "Unable to retrieve playlist track", e);
-                        if (playerListener != null) {
-                            playerListener.onError(manageError(e));
-                        }
-                    }
-
-                    @Override
-                    public void onNext(Pager<PlaylistTrack> playlistTrackPager) {
-                        for (PlaylistTrack playlistTrack : playlistTrackPager.items) {
-                            if (playlistTrack.track.is_playable) {
-                                playlistTracks.add(playlistTrack);
-                                tracksUri.add("spotify:track:" + playlistTrack.track.id);
-                            }
-                        }
-                        tracksOffset = playlistTrackPager.offset + playlistTrackPager.items.size();
-                        hasMore = playlistTrackPager.next != null;
-                    }
-                }));
     }
 
     @Override
@@ -264,31 +167,38 @@ public class SpotifyPlayer extends PlaylistPlayer implements Player.Initializati
     @Override
     public void onPlaybackEvent(EventType eventType, PlayerState playerState) {
         if (eventType == EventType.TRACK_CHANGED) {
-            for (PlaylistTrack playlistTrack : playlistTracks) {
-                if (playlistTrack.track.uri.equals(playerState.trackUri)) {
-                    currentTrack = new Track();
-                    if (playlistTrack.track.artists.size() > 0) {
-                        currentTrack.setArtist(playlistTrack.track.artists.get(0).name);
-                    }
-                    if (playlistTrack.track.album.images.size() > 0) {
-                        currentTrack.setCoverUrl(playlistTrack.track.album.images.get(0).url);
-                    }
-                    currentTrack.setName(playlistTrack.track.name);
-                    if (playerListener != null) {
-                        playerListener.onTrackChange();
-                    }
-                    break;
-                }
-            }
-        } else if (eventType == EventType.END_OF_CONTEXT) {
-            for (PlaylistTrack playlistTrack : playlistTracks) {
-                mPlayer.queue("spotify:track:" + playlistTrack.track.id);
-            }
+            loadTrackInformation(playerState.trackUri);
         } else if (eventType == EventType.LOST_PERMISSION) {
             if (playerListener != null) {
                 playerListener.onError(new PlayerException(context.getString(R.string.player_error_lost_permission)));
             }
         }
+    }
+
+    private void loadTrackInformation(final String trackUri) {
+        subscription.add(ApiSpotify.getInstance().getSpotifyService().getTrack(trackUri).observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.newThread()).subscribe(new Subscriber<org.neige.wakeyouinmusic.android.spotify.models.Track>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "Unable to load track information", e);
+            }
+
+            @Override
+            public void onNext(org.neige.wakeyouinmusic.android.spotify.models.Track track) {
+                currentTrack = new Track();
+                currentTrack.setName(track.name);
+                currentTrack.setArtist(track.artists.get(0).name);
+                currentTrack.setCoverUrl(track.album.images.get(0).url);
+
+                if (playerListener != null){
+                    playerListener.onTrackChange();
+                }
+            }
+        }));
     }
 
     @Override
